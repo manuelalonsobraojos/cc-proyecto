@@ -11,7 +11,7 @@ Para este proyecto retomaré un bot de creación propia que muestre los resultad
 
 Para la realización de este proyecto se va utilizar una arquitectura basada en microservicios, ya que permite modularizar las distintas partes de la aplicación y desplegarlas por separado.
 
-Los microservicios con los que contará el proyecto serán dos, cada uno con una base de datos independiente, y con los que se comunicará el bot para la obtención de determinados resultados, mediante el uso de una API-Rest.
+El proyecto se desarrollará en python y contará con dos microservicios desarrollados con el microframework **flask**, cada uno con un sistema de almacenamiento de datos, en concreto  **postgresql**. Uno de los microservicios se encargará de la gestión de los datos correspondientes a las estadísticas de la liga de primera división y el otro microservicio se encargará de gestionar los datos correspondientes a las estadísticas de la liga de segunda división. El bot se comunicará con estos dos microservicios a traves de una API.
 
 Además se pretenderá de incorporar al proyecto, la novedosa herramienta **Zuul**, la cual se define como un *edge service* que va a permitir enrutar y filtrar las conexiones del bot a los distintos microservicios.
 
