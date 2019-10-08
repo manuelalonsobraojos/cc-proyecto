@@ -19,7 +19,7 @@ Como sistema de almacenamiento de datos se utilizará **postgresql**.
 
 ### Tecnicas a emplear
 
-Además de la arquitectura, cabe destacar el uso de **web scraping** para la obtención de los datos que se quieren manejar.
+Además de la arquitectura, cabe destacar el uso de **web scraping** para la obtención de los datos que se quieren manejar, que serán extraidos de la web del diario AS.
 
 
 
