@@ -23,6 +23,8 @@ El bot se comunicará con estos dos microservicios a traves de **Netflix Zuul**,
 
 **Eureka** es un servicio *Rest* que se comporta como un servidor cuyo objetivo es registrar los microservicios en tiempo de ejecución y localizar los microservicios existentes, informar de su localización y sus datos.
 
+La decisión de utilizar tecnologías como zuul y eureka viene dada por la sencilla configuración que requieren estas herramientas y su sencilla implementación, ya que se encuentran perfectamente integrados con el framework de java **Spring Boot**.
+
 Como sistema de almacenamiento de datos se utilizará **postgresql**, puesto además de que es OpenSource, tiene un alto rendimiento manejando un gran volumen de datos.
 
 La principal ventaja que se obtiene con esta arquitectura de microservicios es una mayor rapidez en las consultas y la fiabilidad de que en caso de que una de las dos bases de datos tenga algun problema el bot seguirá funcionando mostrando información de la base de datos que esté operativa  
