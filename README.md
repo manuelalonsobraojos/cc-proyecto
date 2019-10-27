@@ -36,6 +36,12 @@ La principal ventaja que se obtiene con esta arquitectura de microservicios es u
 Además de la arquitectura, cabe destacar el uso de **web scraping** para la obtención de los datos que se quieren manejar, que serán extraidos de la web del periódico deportivo AS.
 
 
+### Herramientas
+
+* **Lenguajes**: Para el desarrollo de los microservicios se utilizará **Python3** y el microframework Flask con el que desarrollar las API Rest con las que comunicarse con el microservicio.
+* **Almacenamiento**: para el alamcenamiento se utilizaran bases de datos **postgresql**.
+* **Entornos vituales**: para la creación de entornos virtuales se utilzará el entorno virtual de python **virtualenv**.
+* **Enrutamiento**: para el enrutamiento se utilizará el API GetAway **Netflix Zuul**.
 
 
 
