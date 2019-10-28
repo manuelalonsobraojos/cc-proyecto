@@ -39,9 +39,13 @@ Además de la arquitectura, cabe destacar el uso de **web scraping** para la obt
 ### Herramientas
 
 * **Lenguajes**: Para el desarrollo de los microservicios se utilizará **Python3** y el microframework Flask con el que desarrollar las API Rest con las que comunicarse con el microservicio.
-* **Almacenamiento**: para el alamcenamiento se utilizaran bases de datos **postgresql**.
+* **Almacenamiento**: para el almacenamiento se utilizaran bases de datos **postgresql**. Para la utilización de postgresql en python se utilizará la librería **psycopg2**.
 * **Entornos vituales**: para la creación de entornos virtuales se utilzará el entorno virtual de python **virtualenv**.
-* **Enrutamiento**: para el enrutamiento se utilizará el API GetAway **Netflix Zuul**.
+* **Enrutamiento**: para el enrutamiento se utilizará el API GetAway **Netflix Zuul**, que estaran desarrollados con **Java** y el framework **Spring Boot**.
+* **Test e integración continua**: Para el desarrollo de los test se utilizará la biblioteca de Python **pytest**. La ejecución de estos test en futuros despliegues se realizará [travis-ci](https://travis-ci.org).
+* **Web Scraping**: Se utilizará la librería **BeautifulSoup** para realizar web scraping.
+* **Logs**: Para tener realizar un registro de los logs ante posibles eventos producidos en los microservicios, de utilizará la libreria de python **logging**.
+
 
 
 
