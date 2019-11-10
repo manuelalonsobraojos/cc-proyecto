@@ -2,7 +2,7 @@ from peewee import *
 from bot.model.BaseModel import BaseModel
 
 
-class Clasification(BaseModel):
+class Result(BaseModel):
     id = AutoField(primary_key=True)
     teamLocal = CharField(max_length=50, null=False)
     teamVisit = CharField(max_length=50, null=False)

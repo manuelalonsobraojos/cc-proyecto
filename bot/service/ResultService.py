@@ -2,16 +2,16 @@ from bot.model.Result import Result
 import requests
 from bs4 import BeautifulSoup
 
-class ClasificationService():
+class ResultService():
 
     @staticmethod
-    def addClasification():
+    def addResult(local, visit, rlocal, rvisit):
         try:
             result = Result()
-            result.setTeamLocal("Granada")
-            result.setTeamVisit("Barcelona")
-            result.setResultLocal(2)
-            result.setResultVisit(1)
+            result.setTeamLocal(local)
+            result.setTeamVisit(visit)
+            result.setResultLocal(rlocal)
+            result.setResultVisit(rvisit)
             result.save()
             return True
         except:
@@ -22,6 +22,33 @@ class ClasificationService():
 
         try:
             result = Result.get(Result.id == id)
+        except:
+            return None
+        return result
+
+    @staticmethod
+    def getResultByLocal(local):
+
+        try:
+            result = Result.get(Result.teamLocal == local)
+        except:
+            return None
+        return result
+
+    @staticmethod
+    def getResultByVisit(visit):
+
+        try:
+            result = Result.get(Result.teamVisit == visit)
+        except:
+            return None
+        return result
+
+    @staticmethod
+    def getAll():
+
+        try:
+            result = Result.select()
         except:
             return None
         return result
