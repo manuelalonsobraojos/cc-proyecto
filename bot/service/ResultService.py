@@ -48,7 +48,11 @@ class ResultService():
     def getAll():
 
         try:
+            listResults =[]
             result = Result.select()
+            for r in result:
+                listResults.append(r)
+            result = listResults
         except:
             return None
         return result

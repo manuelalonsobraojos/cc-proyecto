@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import Response
-from flask import jsonify
+from flask import jsonify, make_response
 from playhouse.shortcuts import model_to_dict
 import json
 from bot.model.BaseModel import db
@@ -32,10 +32,41 @@ def getResult(id):
     result = rService.getResult(int(id))
 
     if(result is None):
-        return "null"
+        return jsonify(None)
     return jsonify(model_to_dict(result))
 
+@app.route('/resultlocal/<local>')
+def getResultBylocal(local):
 
+    result = rService.getResultByLocal(local)
+
+    if(result is None):
+        return jsonify(None)
+    return jsonify(model_to_dict(result))
+
+@app.route('/resultvisit/<visit>')
+def getResultByVisit(visit):
+
+    result = rService.getResultByVisit(visit)
+
+    if(result is None):
+        return jsonify(None)
+    return jsonify(model_to_dict(result))
+
+@app.route('/resultall')
+def getAllResult():
+
+    result = rService.getAll()
+
+    if(result is None):
+        return jsonify(None)
+
+    resultList= []
+    for item in result:
+       resultList.append(model_to_dict(item))
+
+    print(resultList)
+    return make_response(jsonify(resultList), 200)
 
 if __name__ == '__main__':
     app.run(debug=True)
