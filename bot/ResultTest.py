@@ -1,9 +1,9 @@
 import unittest
 import configparser
 import os
-import bot.model.BaseModel as bs
+from bot.model.BaseModel import db
 from bot.service.ResultService import ResultService as rService
-bs.db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user='awolxnvarfbuje', password='50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93')
+db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user='awolxnvarfbuje', password='50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93')
 
 class ResultTest(unittest.TestCase):
 
@@ -54,3 +54,6 @@ class ResultTest(unittest.TestCase):
             result = False
 
         self.assertTrue(result)
+
+if __name__ == '__main__':
+   unittest.main()
