@@ -1,5 +1,7 @@
 import unittest
 import requests
+import sys
+sys.path.append("../")
 
 class ResultTest(unittest.TestCase):
 
