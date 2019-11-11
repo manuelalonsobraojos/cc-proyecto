@@ -1,6 +1,7 @@
 import unittest
 import configparser
 import os
+import bot
 from bot.model.BaseModel import db
 from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
@@ -10,7 +11,7 @@ class ResultTest(unittest.TestCase):
 
     def test_1(self):
         """
-        Test que comprueba la búsqeuda de un reusltado por su id
+        Test que comprueba la búsqueda de un reusltado por su id
         :return:
         """
         result = True
