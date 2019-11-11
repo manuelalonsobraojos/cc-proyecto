@@ -3,7 +3,7 @@ install:
 	pip install -r requirements.txt
 
 travis:
-	pip install -r requirements.txt
+	python install setup.py
 
 test:
 	cd bot && python ResultTest.py

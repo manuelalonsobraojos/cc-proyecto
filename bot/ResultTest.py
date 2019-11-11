@@ -49,7 +49,7 @@ class ResultTest(unittest.TestCase):
         :return:
         """
         result = True
-
+        
         if (rService.getAll() is None):
             result = False
 
