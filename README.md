@@ -1,6 +1,8 @@
 # cc-proyecto
 Repositorio para el proyecto de la asignatura Cloud Computing
 
+[![Build Status](https://travis-ci.org/manuelalonsobraojos/cc-proyecto.svg?branch=master)](https://travis-ci.org/manuelalonsobraojos/cc-proyecto)
+
 ### Introducción
 
 Desde 2015, se pueden utilizar en Telegram los llamados bots, los cuales son programas que nos permiten conseguir funciones distintas en los chats y grupos que tengamos en Telegram. El desarrollo de estos de bots es totalmente **Libre** y cualquiera puede desarrollar uno. Además, la misma aplicación explica todo lo necesario para la creación de un bot.
@@ -38,7 +40,19 @@ La principal ventaja que se obtiene con esta arquitectura de microservicios es u
 * **Enrutamiento**: para el enrutamiento se utilizará el API GetAway **Netflix Zuul**, que estaran desarrollados con **Java** y el framework **Spring Boot**.
 * **Logs**: Para tener realizar un registro de los logs ante posibles eventos producidos en los microservicios, de utilizará la libreria de python **logging**.
 
+### Integración Continua
 
+Como herramienta de construcción para el microservicio he utilizado un archivo Makefile y un archivo requirements.txt para la instalación de las dependencias. Con este archivo Makefile se podrá realizar la instalación de dependencias necesarias para la ejecución del microservicio, ejecutar los test y ejecutar el microservicio. Todo ello con las siguientes ordenes respectivamente:
+* make install
+* make test
+* make ejecutar
+
+Para la realización de los test se ha utilizado la libreria unittest, para su ejecución se ha incluido un objetivo make test dentro del archivo Makefile:
+```
+buildtool: Makefile
+```
+
+Como sistema de integración continua se utiliza Travis-CI, para ello he incluido un archivo .travis.yml en el repositorio, donde se configura la conexión con travis-ci y se le indica como instalar las dependencias necesarias para la ejecución del bot y como ejecutar los test.
 
 
 
