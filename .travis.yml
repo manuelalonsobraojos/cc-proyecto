@@ -3,5 +3,6 @@ python:
  - "3.7.4"
 install:
   - make travis
+
 #Script
 script: make test
