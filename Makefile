@@ -6,7 +6,7 @@ travis:
 	python setup.py install
 
 test:
-	cd bot && python app.py && cd test && python test_app.py
+	cd bot && cd test && python test_app.py
 
 ejecutar:
 	cd bot && python app.py

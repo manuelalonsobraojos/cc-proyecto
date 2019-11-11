@@ -13,9 +13,9 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello():
+def recolect():
     rService.inserDataResult()
-    return 'Hello, World!'
+    return 'Datos recolectados'
 
 @app.route('/insert')
 def insert():

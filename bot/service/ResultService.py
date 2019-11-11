@@ -58,6 +58,14 @@ class ResultService():
         return result
 
     @staticmethod
+    def getResultLocal(id):
+        try:
+            result = Result.get(Result.id == id)
+        except:
+            return None
+        return result.getResultLocal()
+
+    @staticmethod
     def inserDataResult():
         """Funcion que scrapea de la web la información de los resultados de la jornada de la liga española de fútbol.
         """
