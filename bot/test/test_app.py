@@ -8,9 +8,9 @@ db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.co
 
 class ResultTest(unittest.TestCase):
 
-    def test_1(self):
+    def test_check_result_by_id(self):
         """
-        Test que comprueba la búsqeuda de un reusltado por su id
+        Test que comprueba la búsqueda de un resultados por su id
         :return:
         """
         result = True
@@ -20,9 +20,9 @@ class ResultTest(unittest.TestCase):
 
         self.assertTrue(result)
 
-    def test_2(self):
+    def test_check_result_by_name(self):
         """
-                Test que comprueba la búqueda de un resultado por su nombre de equipo local o visitante
+                Test que comprueba la búsqueda de un resultado por su nombre de equipo local o visitante
                 :return:
                 """
         result = False
@@ -34,21 +34,9 @@ class ResultTest(unittest.TestCase):
 
         self.assertTrue(result)
 
-    def test_3(self):
+    def test_check_all_results(self):
         """
-                Test que comprueba la búsqeuda de un resultado por su nombre de equipo visitante
-                :return:
-                """
-        result = True
-
-        if (rService.getResultByVisit("Granada") is None):
-            result = False
-
-        self.assertTrue(result)
-
-    def test_4(self):
-        """
-        Test que comrpueba la búsqueda de todos los resultados
+        Test que comprueba la búsqueda de todos los resultados
         :return:
         """
         result = True
@@ -58,9 +46,9 @@ class ResultTest(unittest.TestCase):
 
         self.assertTrue(result)
 
-    def test_5(self):
+    def test_check_local_score_result(self):
         """
-        Test que comrpueba la búsqueda del marcador local de un partido
+        Test que comprueba la búsqueda del marcador local de un partido
         :return:
         """
         result = True
@@ -70,7 +58,7 @@ class ResultTest(unittest.TestCase):
 
         self.assertTrue(result)
 
-    def test_6(self):
+    def test_name_team(self):
         """
         Test que comprueba que el nombre del equipo buscado es el devuelto
         :return:
