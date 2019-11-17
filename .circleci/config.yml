@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run:
+          name: Install Python dependencies in a virtual env
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            make install
+      - run:
+          name: Runnning tests of microservice
+          command: |
+            . venv/bin/activate
+            make test
