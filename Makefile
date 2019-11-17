@@ -1,6 +1,6 @@
 
 install:
-	pip setup.py install
+	python setup.py install
 
 test:
 	cd bot && cd test && python test_app.py
