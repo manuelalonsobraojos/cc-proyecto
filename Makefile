@@ -1,9 +1,6 @@
 
 install:
-	pip install -r requirements.txt
-
-travis:
-	python setup.py install
+	pip setup.py install
 
 test:
 	cd bot && cd test && python test_app.py
