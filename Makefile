@@ -1,9 +1,9 @@
 
 install:
-	python setup.py install
+	python3 setup.py install
 
 test:
-	cd bot && cd test && python test_app.py
+	cd bot && cd test && python3 test_app.py
 
 ejecutar:
-	cd bot && python app.py
+	cd bot && python3 app.py
