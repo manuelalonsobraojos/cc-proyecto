@@ -2,12 +2,12 @@ from flask import Flask
 from flask import Response
 from flask import jsonify, make_response
 from playhouse.shortcuts import model_to_dict
-import json
 from bot.model.BaseModel import db
 from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
+import os
 
-db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user='awolxnvarfbuje', password='50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93')
+db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user=os.environ['USER_BD'], password=os.environ['PASS_BD'])
 db.create_tables([Result])
 app = Flask(__name__)
 
