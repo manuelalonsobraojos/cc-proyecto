@@ -75,7 +75,7 @@ Para subir el proyecto a docker primero deberemos de crear y configurar el conte
 En los siguientes en enlaces podemos encontrar el [Dockerfile](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/Dockerfile) y el [docker_run](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docker_run). Para la creación del contenedor se ha utilizado una contenedor base de **ubuntu 16.04**, puesto que es el sistema operativo en el que se ha estado trabajando y se sabe que el microservicio funciona debidamente.
 Una vez generada la imagen, es subida a dockerhub.
 ```
-contenedor: https://hub.docker.com/repository/docker/manuelalonsobraojos/cc-proyecto/tags?page=1
+Contenedor: https://hub.docker.com/repository/docker/manuelalonsobraojos/cc-proyecto/tags?page=1
 ```
 
 ### Arquitectura de por capas
