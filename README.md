@@ -56,6 +56,29 @@ Como sistema de integración continua se han utilizado **Travis-CI** y **CircleC
 * **Travis-Ci**: Se encarga de ejecutar los test unitarios creados para el proyecto. Estos test son comprobados para distintas dversiones de python, desde la *3.4* hasta la *3.7.4*. Para la configuración se ha creado un archivo llamado [.travis.yml](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/.travis.yml)
 * **CircleCi**: se encarga de de ejecutar los test unitarios creados para el proyecto. Estos son comprobados para la versión 3.7.4 de python. Para la configruación se ha creado un archivo [config.yml](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/.circleci/config.yml) y que se debe de encontrar dentros de un directorio de nombre [.circleci](https://github.com/manuelalonsobraojos/cc-proyecto/tree/master/.circleci) para que circleci pueda encontrar el archivod e configuración.
 
+### Microservicio y tests
+Para la ejecución del microservicio se debe de ejecutar el comando ```make ejecutar```, una vez ejecutado se desplegará el microservicio el cual tiene varias rutas implementadas:
+```
+http://localhost:5000/                      # Se recolectan los datos
+http://localhost:5000/insert                # Se inserta resultado por defecto
+http://localhost:5000/result/<id>           # Se muestra un resultado por su id 
+http://localhost:5000/resultlocal/<local>   # Se muestra un resultado por su equipo local
+http://localhost:5000/resultlocal/<visit>   # Se muestra un resultado por su equipo visitante
+http://localhost:5000/resultall             # Se muestran todos los resultados de la jornada
+```
 
+Para la ejecución de los test implementados para distintas comprobaciones, se debe de ejecutar el comando ```make test```.
 
+### Contenedores
+Para subir el proyecto a docker primero deberemos de crear y configurar el contenedor de docker. Para ello crearemos en nuestro repositorio un archivo Dockerfile, que contendrá todas las tareas de construcción del contenedor. En el archivo dockerfile se hará referencia a un script docker_run que instalará todo lo necesario para preparar el contenedor y llamará al archivo Makefile que instalará todos los requisitos que necesita el microservicio.
 
+En los siguientes en enlaces podemos encontrar el [Dockerfile](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/Dockerfile) y el [docker_run](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docker_run). Para la creación del contenedor se ha utilizado una contenedor base de **ubuntu 16.04**, puesto que es el sistema operativo en el que se ha estado trabajando y se sabe que el microservicio funciona debidamente.
+Una vez generada la imagen, es subida a dockerhub.
+contenedor: [dockerhub](https://hub.docker.com/repository/docker/manuelalonsobraojos/cc-proyecto/tags?page=1).
+
+### Arquitectura de por capas
+
+La arquitectura de este microservicio está compuesta por tres capas:
+* **Capa de servicio**: es la capa que se encarga de dar acceso al microservicio y se encarga de intermediar la comuniacación entre *la capa de presentación* (corresponde con la interfaz que interactua con el usuario) y la **capa de negocio**. [app.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/app.py)
+* **Capa de lógica de negocio**: es la capa que contiene una serie subrutinas que regulan la acciones de los usuarios e interactuan con las entidades de negocio. [resultservice.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/service/ResultService.py)
+* **Capa de base de datos**: contiene las entidades que interactuan con la base de daos. [result.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/model/Result.py)
