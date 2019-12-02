@@ -14,6 +14,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def recolect():
+    return 'resultados de la liga española de futbol'
+
+@app.route('/recolect')
+def recolect():
     rService.inserDataResult()
     return 'Datos recolectados'
 
