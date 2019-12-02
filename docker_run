@@ -8,5 +8,3 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y libpq-dev
 sudo apt-get install -y libxml2-dev libxslt-dev  python-dev  python-setuptools
 sudo python setup.py install
-export USER_BD="awolxnvarfbuje"
-export PASS_BD="50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93"
