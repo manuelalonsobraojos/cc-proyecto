@@ -65,17 +65,18 @@ http://localhost:5000/result/<id>           # Se muestra un resultado por su id
 http://localhost:5000/resultlocal/<local>   # Se muestra un resultado por su equipo local
 http://localhost:5000/resultlocal/<visit>   # Se muestra un resultado por su equipo visitante
 http://localhost:5000/resultall             # Se muestran todos los resultados de la jornada
+http://localhost:5000/recolect              # Se actualizan los partidos de la jornada
 ```
 
 Para la ejecución de los test implementados para distintas comprobaciones, se debe de ejecutar el comando ```make test```.
 
 ### Contenedores
-Para subir el proyecto a docker primero deberemos de crear y configurar el contenedor de docker. Para ello crearemos en nuestro repositorio un archivo Dockerfile, que contendrá todas las tareas de construcción del contenedor. En el archivo dockerfile se hará referencia a un script docker_run que instalará todo lo necesario para preparar el contenedor y llamará al archivo Makefile que instalará todos los requisitos que necesita el microservicio.
+Para subir el proyecto a docker primero deberemos registrarnos en DockerHub, crear un repositorio y vincularlo con el repositorio de github. Para la configuración del contenedor de docker crearemos en nuestro repositorio un archivo Dockerfile, que contendrá todas las tareas de construcción del contenedor. En el archivo dockerfile se hará referencia a un script al que se le ha llamado *docker_run* que instalará todo las dependencias necesarias para preparar el contenedor..
 
-En los siguientes en enlaces podemos encontrar el [Dockerfile](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/Dockerfile) y el [docker_run](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docker_run). Para la creación del contenedor se ha utilizado una contenedor base de **ubuntu 16.04**, puesto que es el sistema operativo en el que se ha estado trabajando y se sabe que el microservicio funciona debidamente.
-Una vez generada la imagen, es subida a dockerhub.
+En los siguientes en enlaces podemos encontrar el [Dockerfile](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/Dockerfile) y el script [docker_run](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docker_run). Para la creación del contenedor se ha utilizado una contenedor base de **ubuntu 16.04**, puesto que es el sistema operativo en el que se ha estado trabajando y se sabe que el microservicio funciona debidamente.
+Cada vez que se realice un push al repositorio de GitHub se realizará la construcción de la imagen en DockerHub.
 ```
-Contenedor: https://hub.docker.com/repository/docker/manuelalonsobraojos/cc-proyecto/tags?page=1
+Contenedor: https://hub.docker.com/r/manuelalonsobraojos/cc-proyecto
 ```
 
 ### Arquitectura de por capas
