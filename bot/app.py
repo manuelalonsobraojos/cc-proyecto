@@ -69,7 +69,6 @@ def getAllResult():
     for item in result:
        resultList.append(model_to_dict(item))
 
-    print(resultList)
     return make_response(jsonify(resultList), 200)
 
 if __name__ == '__main__':
