@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def recolect():
+def main():
     return 'resultados de la liga española de futbol'
 
 @app.route('/recolect')
