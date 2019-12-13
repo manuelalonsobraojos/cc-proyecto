@@ -106,8 +106,13 @@ class ResultService():
                 print(entrada.text)
                 result = entrada.text
                 position = result.find('-')
-                v_result_local.insert(i, int(""+result[position-2]))
-                v_result_visit.insert(i, int(""+result[position + 2]))
+                if (result[position - 2] == ' '):
+                    v_result_local.insert(i, None)
+                else:
+                    v_result_local.insert(i, int(""+result[position-2]))
+
+                # v_result_local.insert(i, int(""+result[position-2]))
+                # v_result_visit.insert(i, int(""+result[position + 2]))
 
             if len(v_result) < 10:
                 for i in range(len(v_result), 10):
@@ -134,8 +139,14 @@ class ResultService():
                     result = Result()
                     result.setTeamLocal(v_tlocal[i])
                     result.setTeamVisit(v_tvisit[i])
-                    result.setResultLocal(int(v_result_local[i]))
-                    result.setResultVisit(int(v_result_visit[i]))
+                    if(v_result_local[i] == ' '):
+                        result.setResultLocal(None)
+                    else:
+                        result.setResultLocal(int(v_result_local[i]))
+                    if(v_result_visit[i] == ' '):
+                        result.setResultVisit(None)
+                    else:
+                        result.setResultVisit(int(v_result_visit[i]))
                     result.save()
 
         else:

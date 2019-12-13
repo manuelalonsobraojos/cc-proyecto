@@ -7,12 +7,12 @@ from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
 import os
 
-db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user=os.environ['USER_BD'], password=os.environ['PASS_BD'])
+db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user='awolxnvarfbuje', password='50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93')
 db.create_tables([Result])
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/result')
 def main():
     return 'resultados de la liga española de futbol'
 
@@ -30,7 +30,7 @@ def insert():
     else:
         return "false"
 
-@app.route('/result/<id>')
+@app.route('/result/get/<id>')
 def getResult(id):
 
     result = rService.getResult(int(id))
@@ -39,7 +39,7 @@ def getResult(id):
         return jsonify(None)
     return jsonify(model_to_dict(result))
 
-@app.route('/resultlocal/<local>')
+@app.route('/result/local/<local>')
 def getResultBylocal(local):
 
     result = rService.getResultByLocal(local)
@@ -48,7 +48,7 @@ def getResultBylocal(local):
         return jsonify(None)
     return jsonify(model_to_dict(result))
 
-@app.route('/resultvisit/<visit>')
+@app.route('/result/visit/<visit>')
 def getResultByVisit(visit):
 
     result = rService.getResultByVisit(visit)
@@ -57,7 +57,7 @@ def getResultByVisit(visit):
         return jsonify(None)
     return jsonify(model_to_dict(result))
 
-@app.route('/resultall')
+@app.route('/result/getall')
 def getAllResult():
 
     result = rService.getAll()
@@ -74,4 +74,4 @@ def getAllResult():
 if __name__ == '__main__':
 
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
