@@ -16,20 +16,6 @@ app = Flask(__name__)
 def main():
     return 'resultados de la liga española de futbol'
 
-@app.route('/recolect')
-def recolect():
-    rService.inserDataResult()
-    return 'Datos recolectados'
-
-@app.route('/insert')
-def insert():
-    response = rService.addResult()
-
-    if (response == True):
-        return "true"
-    else:
-        return "false"
-
 @app.route('/result/get/<id>')
 def getResult(id):
 
