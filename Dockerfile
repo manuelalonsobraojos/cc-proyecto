@@ -3,9 +3,6 @@ FROM ubuntu:16.04
 #Creación de directorio de trabajo
 RUN mkdir -p /home/cc-proyecto
 
-#Establecimiento de directorio de trabajo
-WORKDIR /home/cc-proyecto
-
 #Copia de archivos necesarios al directorio de trabajo
 COPY docker_run /home/cc-proyecto/
 COPY Makefile /home/cc-proyecto/
