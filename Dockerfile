@@ -18,4 +18,4 @@ RUN chmod a+x docker_run
 RUN ./docker_run
 
 #Ejecución de microservicio
-CMD cd python3 bot/app.py
+CMD python3 bot/app.py
