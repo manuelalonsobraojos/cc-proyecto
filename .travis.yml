@@ -7,7 +7,7 @@ python:
  - "3.7.4"
 install:
   - make install
-deploy:
+env:
  NAME_BD: $NAME_BD
  HOST_BD: $HOST_BD
  USER_BD: $USER_BD
