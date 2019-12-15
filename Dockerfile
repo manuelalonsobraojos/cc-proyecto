@@ -3,14 +3,11 @@ FROM ubuntu:16.04
 #Creación de directorio de trabajo
 RUN mkdir -p /home/cc-proyecto
 
-#Establecimiento de directorio de trabajo
-WORKDIR /home/cc-proyecto
-
 #Copia de archivos necesarios al directorio de trabajo
-COPY docker_run ./
-COPY Makefile ./
-COPY setup.py ./
-COPY bot/* ./
+COPY docker_run /home/cc-proyecto
+COPY Makefile /home/cc-proyecto
+COPY setup.py /home/cc-proyecto
+COPY bot/* /home/cc-proyecto
 
 #Permiso de Script de dependencias
 RUN chmod a+x docker_run
@@ -19,4 +16,4 @@ RUN chmod a+x docker_run
 RUN ./docker_run
 
 #Ejecución de microservicio
-CMD python3 bot/app.py
+CMD python3 /home/cc-proyecto/bot/app.py
