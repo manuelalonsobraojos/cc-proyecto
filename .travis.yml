@@ -7,11 +7,11 @@ python:
  - "3.7.4"
 install:
   - make install
-env:
- - NAME_BD: $NAME_BD
- - HOST_BD: $HOST_BD
- - USER_BD: $USER_BD
- - PASS_BD: $PASS_BD
+deploy:
+ NAME_BD: $NAME_BD
+ HOST_BD: $HOST_BD
+ USER_BD: $USER_BD
+ PASS_BD: $PASS_BD
 
 #Script
 script: make test
