@@ -13,7 +13,7 @@ COPY bot/* /home/cc-proyecto/
 RUN chmod a+x /home/cc-proyecto/docker_run
 
 #Ejecución de script de dependencias
-RUN ./home/cc-proyecto/docker_run
+RUN cd /home/cc-proyecto && ./docker_run
 
 #Ejecución de microservicio
 CMD python3 /home/cc-proyecto/bot/app.py
