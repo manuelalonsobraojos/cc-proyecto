@@ -7,16 +7,16 @@ RUN mkdir -p /home/cc-proyecto
 WORKDIR /home/cc-proyecto
 
 #Copia de archivos necesarios al directorio de trabajo
-COPY docker_run ./
-COPY Makefile ./
-COPY setup.py ./
-COPY bot ./
+COPY docker_run /home/cc-proyecto/
+COPY Makefile /home/cc-proyecto/
+COPY setup.py /home/cc-proyecto/
+COPY bot /home/cc-proyecto/
 
 #Permiso de Script de dependencias
-RUN chmod a+x docker_run
+RUN chmod a+x /home/cc-proyecto/docker_run
 
 #Ejecución de script de dependencias
-RUN ./docker_run
+RUN cd /home/cc-proyecto && ./docker_run
 
 #Ejecución de microservicio
-CMD python3 bot/app.py
+CMD /home/cc-proyecto/ && cd bot && python3 app.py
