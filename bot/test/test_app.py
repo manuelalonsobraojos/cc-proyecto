@@ -2,6 +2,7 @@ import unittest
 from bot.model.BaseModel import db
 from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
+import os
 db.init(os.environ['NAME_BD'], host=os.environ['HOST_BD'], user=os.environ['USER_BD'], password=os.environ['PASS_BD'])
 
 
