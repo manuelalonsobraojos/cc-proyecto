@@ -58,8 +58,6 @@ La arquitectura de este microservicio está compuesta por tres capas:
 * **Capa de base de datos**: contiene las entidades que interactuan con la base de daos. [result.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/model/Result.py)
  
 ### Despliegue en Heroku
-La aplicación desplegada en heroku está disponible en el siguiente enlace:
-[https://ms-results.herokuapp.com](https://ms-results.herokuapp.com/)
 
 Para el despliegue en heroku se ha creado el archivo [heroku.yml](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/heroku.yml), en el que se indica la construcción y despliegue del contenedor mediante el archivo **Dockerfile**.
 
