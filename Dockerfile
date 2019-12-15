@@ -10,10 +10,10 @@ COPY setup.py /home/cc-proyecto/
 COPY bot/* /home/cc-proyecto/
 
 #Permiso de Script de dependencias
-RUN chmod a+x docker_run
+RUN chmod a+x /home/cc-proyecto/docker_run
 
 #Ejecución de script de dependencias
-RUN ./docker_run
+RUN ./home/cc-proyecto/docker_run
 
 #Ejecución de microservicio
 CMD python3 /home/cc-proyecto/bot/app.py
