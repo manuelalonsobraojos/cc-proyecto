@@ -7,7 +7,7 @@ RUN mkdir -p /home/cc-proyecto
 COPY docker_run /home/cc-proyecto/
 COPY Makefile /home/cc-proyecto/
 COPY setup.py /home/cc-proyecto/
-COPY bot /home/cc-proyecto/
+COPY /bot/. /home/cc-proyecto/bot/
 
 #Permiso de Script de dependencias
 RUN chmod a+x /home/cc-proyecto/docker_run
