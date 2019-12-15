@@ -5,11 +5,11 @@ Repositorio para el proyecto de la asignatura Cloud Computing
 
 En el siguiente enlace podemos consultar la documentación correspondiente a la primera entrega:
 
-[primera entrega](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docs/hito1.md)
+[primera entrega](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docs/Readme1.md)
 
 En el siguiente enlace podemos consultar la documentación correspondiente a la segunda entrega:
 
-[segunda entrega](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docs/hito2.md)
+[segunda entrega](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docs/Readme2.md)
 
 La herramienta de construcción utilizada y desarrollada en la segunda entrega fue la siguiente:
 ```
