@@ -4,10 +4,10 @@ FROM ubuntu:16.04
 RUN mkdir -p /home/cc-proyecto
 
 #Copia de archivos necesarios al directorio de trabajo
-COPY docker_run /home/cc-proyecto
-COPY Makefile /home/cc-proyecto
-COPY setup.py /home/cc-proyecto
-COPY bot/* /home/cc-proyecto
+COPY docker_run /home/cc-proyecto/
+COPY Makefile /home/cc-proyecto/
+COPY setup.py /home/cc-proyecto/
+COPY bot/* /home/cc-proyecto/
 
 #Permiso de Script de dependencias
 RUN chmod a+x docker_run
