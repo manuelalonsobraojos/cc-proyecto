@@ -1,7 +1,7 @@
 import unittest
 from bot.model.BaseModel import db
 from bot.model.Result import Result
-db.init('dercn75nklk4a6', host='ec2-54-246-92-116.eu-west-1.compute.amazonaws.com', user='awolxnvarfbuje', password='50af008532aaf685ecf1e4bc9d397528354600f3de0a41554cf8291284b0eb93')
+db.init(os.environ['NAME_BD'], host=os.environ['HOST_BD'], user=os.environ['USER_BD'], password=os.environ['PASS_BD'])
 
 class ResultTest(unittest.TestCase):
 
