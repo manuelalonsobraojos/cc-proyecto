@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-RUN apt-get -y update
 
 #Creación de directorio de trabajo
 RUN mkdir -p /home/cc-proyecto
