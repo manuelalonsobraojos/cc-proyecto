@@ -16,4 +16,4 @@ RUN chmod a+x /home/cc-proyecto/docker_run
 RUN cd /home/cc-proyecto && ./docker_run
 
 #Ejecución de microservicio
-CMD python3 /home/cc-proyecto/bot/app.py
+CMD cd /home/cc-proyecto && cd bot && python3 app.py
