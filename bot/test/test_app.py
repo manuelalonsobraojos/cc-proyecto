@@ -1,5 +1,4 @@
 import unittest
-import requests
 from bot.model.BaseModel import db
 from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
