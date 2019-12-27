@@ -18,6 +18,26 @@ class ResultService():
             return False
 
     @staticmethod
+    def updateResult(id, rlocal, rvisit):
+        try:
+            result = Result.get_by_id(int(id))
+            result.setResultLocal(rlocal)
+            result.setResultVisit(rvisit)
+            result.save()
+            return True
+        except:
+            return False
+
+    @staticmethod
+    def deleteResult(id):
+
+        try:
+            Result.delete_by_id(int(id))
+        except:
+            return False
+        return True
+
+    @staticmethod
     def getResult(id):
 
         try:

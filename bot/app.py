@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 from flask import Response
 from flask import jsonify, make_response
 from playhouse.shortcuts import model_to_dict
@@ -16,13 +16,23 @@ app = Flask(__name__)
 def main():
     return 'resultados de la liga española de futbol'
 
+@app.route('/result/update/<id>/<rlocal>/<rvisit>', methods=['POST'])
+def updateResult(id, rlocal, rvisit):
+
+    response = rService.updateResult(id, rlocal, rvisit)
+
+    if (response == True):
+        return jsonify("true")
+    else:
+        return jsonify("false")
+
 @app.route('/result/get/<id>')
 def getResult(id):
 
     result = rService.getResult(int(id))
 
     if(result is None):
-        return jsonify(None)
+        return Response("404", status=404, mimetype='application/json')
     return jsonify(model_to_dict(result))
 
 @app.route('/result/local/<local>')
@@ -31,7 +41,7 @@ def getResultBylocal(local):
     result = rService.getResultByLocal(local)
 
     if(result is None):
-        return jsonify(None)
+        return Response("404", status=404, mimetype='application/json')
     return jsonify(model_to_dict(result))
 
 @app.route('/result/visit/<visit>')
@@ -40,8 +50,15 @@ def getResultByVisit(visit):
     result = rService.getResultByVisit(visit)
 
     if(result is None):
-        return jsonify(None)
+        return Response("404", status=404, mimetype='application/json')
+        # return jsonify(None)
     return jsonify(model_to_dict(result))
+
+@app.route('/result/delete/<id>')
+def deleteResult(id):
+
+    status = rService.deleteResult(id)
+    return jsonify(status)
 
 @app.route('/result/getall')
 def getAllResult():
@@ -49,7 +66,7 @@ def getAllResult():
     result = rService.getAll()
 
     if(result is None):
-        return jsonify(None)
+        return Response("404", status=404, mimetype='application/json')
 
     resultList= []
     for item in result:
