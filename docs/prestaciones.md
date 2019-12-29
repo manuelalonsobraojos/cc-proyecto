@@ -22,20 +22,20 @@ scenarios:
     - url: 'http://127.0.0.1:8000/result/local/valencia'
       method: GET
 ```
-En este archivo se especifica que se quieren 10 usuarios concurrentes, lo cuales tardaran 10 segundos en conectarse todos y permanecerán 55 segundos conectados. Además se especifican las rutas del servidor a las que se realizaran las peticiones.
+En este archivo se especifica el número de usuarios concurrentes, en este caso 10 usuarios concurrentes, los cuales tardaran 10 segundos en conectarse y permanecerán 55 segundos conectados. Además se especifican las rutas del servidor a las que se realizaran las peticiones.
 
 ### Primera prueba
 
-En un primer momento se procedío a realizar un análisis de las prestaciones del microservicio ejecutando este con el comando ```python3 bot/app.py```. Tras terminar el análisis se pudo observar que el número de peticiones soportardo era muy bajo tal y como podemos observar en la siguiente imagen.
+En un primer momento se procedío a realizar un análisis de las prestaciones del microservicio ejecutando este con el comando ```python3 bot/app.py```. Tras terminar el análisis se pudo observar que el número de peticiones soportardas era muy bajo, tal y como podemos observar en la siguiente imagen.
 
 ![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/captura_prueba_1.PNG)
 
 ### Segunda prueba 
 
-Tras ver el resultado de la primera prueba se procedió a realizar dos cambios, el primer cambio fue la imcoportación de un sistema de caché en el microservicio, mediante la biblioteca [flask-caching](https://flask-caching.readthedocs.io/en/latest/). El segundo cambio que se realizó fue la utilización de `gunicorn` para la ejecución del microservicio con la siguiente línea:
+Tras ver el resultado de la primera prueba se procedió a realizar dos cambios, el primer cambio fue la incoportación de un sistema de caché en el microservicio, mediante la biblioteca [flask-caching](https://flask-caching.readthedocs.io/en/latest/). El segundo cambio que se realizó fue la utilización de `gunicorn` para la ejecución del microservicio con la siguiente línea:
 ```
  gunicorn -w 5 app:app
  ```
- Con este comando se establecen 5 workers con los que se conseguirá un mejor rendimiento del microservicio. Tras realizar un análisis de las prestaciones se puede observar una mejoría y como el microservicio durante un espacio de tiempo era capaz de soportar más de 1000 peticiones por segundo.
+ Con este comando se establecen 5 workers con los que se conseguirá un mejor rendimiento del microservicio. Tras realizar un análisis de las prestaciones se puede observar una notable mejoría y además el microservicio durante un espacio de tiempo era capaz de soportar más de 1000 peticiones por segundo.
  
  ![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/captura_prueba_2.PNG)
