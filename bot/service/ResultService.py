@@ -146,7 +146,7 @@ class ResultService():
 
             # print (entradas)
 
-            for i in range(10):
+            for i in range(1,10):
                 # fun_bd.insertResultados(v_tlocal[i], v_result[i], v_tvisit[i], i + 1)
                 try:
                     result = Result.select().where(Result.id == i).get()
