@@ -1,16 +1,26 @@
+# coding=utf-8
 from flask import Flask, Response
 from flask import Response
 from flask import jsonify, make_response
+from flask import Flask
 from playhouse.shortcuts import model_to_dict
 from bot.model.BaseModel import db
 from bot.model.Result import Result
 from bot.service.ResultService import ResultService as rService
 import os
+from flask_caching import Cache
+
+config = {
+    "DEBUG": True,          
+    "CACHE_TYPE": "simple",
+    "CACHE_DEFAULT_TIMEOUT": 300
+}
 
 db.init(os.environ['NAME_BD'], host=os.environ['HOST_BD'], user=os.environ['USER_BD'], password=os.environ['PASS_BD'])
 db.create_tables([Result])
 app = Flask(__name__)
-
+app.config.from_mapping(config)
+cache = Cache(app)
 
 @app.route('/result')
 def main():
@@ -18,7 +28,7 @@ def main():
 
 @app.route('/result/update/<id>/<rlocal>/<rvisit>', methods=['POST'])
 def updateResult(id, rlocal, rvisit):
-
+    
     response = rService.updateResult(id, rlocal, rvisit)
 
     if (response == True):
@@ -27,6 +37,7 @@ def updateResult(id, rlocal, rvisit):
         return jsonify("false")
 
 @app.route('/result/get/<id>')
+@cache.cached(timeout=50)
 def getResult(id):
 
     result = rService.getResult(int(id))
@@ -36,6 +47,7 @@ def getResult(id):
     return jsonify(model_to_dict(result))
 
 @app.route('/result/local/<local>')
+@cache.cached(timeout=50)
 def getResultBylocal(local):
 
     result = rService.getResultByLocal(local)
@@ -45,6 +57,7 @@ def getResultBylocal(local):
     return jsonify(model_to_dict(result))
 
 @app.route('/result/visit/<visit>')
+@cache.cached(timeout=50)
 def getResultByVisit(visit):
 
     result = rService.getResultByVisit(visit)
@@ -61,6 +74,7 @@ def deleteResult(id):
     return jsonify(status)
 
 @app.route('/result/getall')
+@cache.cached(timeout=50)
 def getAllResult():
 
     result = rService.getAll()
@@ -77,4 +91,5 @@ def getAllResult():
 if __name__ == '__main__':
 
     port = int(os.environ.get('PORT', 5000))
+    
     app.run(debug=True, host='0.0.0.0', port=port)

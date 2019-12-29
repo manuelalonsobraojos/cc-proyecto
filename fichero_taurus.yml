@@ -1,0 +1,22 @@
+execution:
+- concurrency: 10
+  ramp-up: 10s
+  hold-for: 55s
+  scenario: app-test
+
+scenarios:
+  app-test:
+    requests:
+    - url: 'http://127.0.0.1:8000/result/getall'
+      method: GET
+
+    - url: 'http://127.0.0.1:8000/result/get/1'
+      method: GET
+
+    - url: 'http://127.0.0.1:8000/result/local/valencia'
+      method: GET
+
+
+
+
+
