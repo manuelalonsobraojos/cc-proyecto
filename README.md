@@ -28,7 +28,7 @@ Contenedor: https://hub.docker.com/r/manuelalonsobraojos/cc-proyecto
 ### Evaluación de prestaciones
 
 ```
-Prestaciones: https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/fichero_taurus.yml
+Prestaciones: fichero_taurus.yml
 ```
 
 La evaluación de las prestaciones del microservicio creado, se ha realizado con la herramienta [Taurus](https://gettaurus.org/). El objetivo principal es que el microsevicio creado de `resultados`soporte 1000 peticiones por segundo con 10 usuarios concurrentes.
