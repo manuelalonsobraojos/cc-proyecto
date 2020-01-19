@@ -1,0 +1,33 @@
+- hosts: default
+  sudo: yes
+  vars:
+    NAME_BD: "{{ lookup('env','NAME_BD') }}" 
+    HOST_BD: "{{ lookup('env','HOST_BD') }}" 
+    USER_BD: "{{ lookup('env', 'USER_BD') }}"
+	PASS_BD: "{{ lookup('env', 'PASS_BD') }}"
+
+  tasks:
+  - name: Update
+    command: apt-get update
+  - name: essential
+    command: apt-get install -y build-essential
+  - name: Instalar pip
+    apt: name=python3-pip state=present
+  - name: Instalar paquetes necesarios
+    apt: name=python3-setuptools state=present
+    apt: name=python3-dev state=present
+    apt: name=libgdbm-dev state=present
+    apt: name=libncurses5-dev state=present
+    apt: name=postgresql state=present
+    apt: name=postgresql-contrib state=present
+    apt: name=libpq-dev state=present
+  - name: Instalar supervisor
+    apt: name=supervisor state=present
+  - name: Instalar paquete resultados
+    command: sudo python3 setup.py install
+  - name: Instalar paquete clasificacion
+    command: sudo python3 setup_clasificacion.py install
+  - name: Instalar nginx
+  	command: sudo apt install nginx 
+  - name: Mover configuracion nginx
+  	command: sudo mv -f nginx.conf ../../etc/nginx/nginx.conf
