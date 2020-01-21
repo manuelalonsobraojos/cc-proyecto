@@ -7,3 +7,9 @@ test:
 
 ejecutar:
 	cd bot && python3 app.py
+
+ejecutar_result:
+	nohup python3 app.py &
+
+ejecutar_clasificacion:
+	nohup python3 clasificacionRest.py &

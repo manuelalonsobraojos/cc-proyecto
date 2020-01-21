@@ -4,9 +4,9 @@ from flask import Response
 from flask import jsonify, make_response
 from flask import Flask
 from playhouse.shortcuts import model_to_dict
-from bot.model.BaseModel import db
-from bot.model.Result import Result
-from bot.service.ResultService import ResultService as rService
+from model.BaseModel import db
+from model.Result import Result
+from service.ResultService import ResultService as rService
 import os
 from flask_caching import Cache
 
@@ -92,4 +92,4 @@ if __name__ == '__main__':
 
     port = int(os.environ.get('PORT', 5000))
     
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port)

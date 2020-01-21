@@ -1,10 +1,21 @@
-- hosts: default
-  sudo: yes
+---
+- hosts: all
+  become: yes
+  gather_facts: False
   vars:
     NAME_BD: "{{ lookup('env','NAME_BD') }}" 
     HOST_BD: "{{ lookup('env','HOST_BD') }}" 
     USER_BD: "{{ lookup('env', 'USER_BD') }}"
-	PASS_BD: "{{ lookup('env', 'PASS_BD') }}"
+    PASS_BD: "{{ lookup('env', 'PASS_BD') }}"
+
+  pre_tasks:
+    - name: Instalar Python 2 para Ansible
+      raw: test -e /usr/local/bin/python || (apt -y update && apt install -y python)
+      changed_when: False
+
+    - name: Instalar Python 3 para Ansible
+      raw: test -e /usr/local/bin/python3 || (apt -y update && apt install -y python3)
+      changed_when: False
 
   tasks:
   - name: Update
@@ -13,21 +24,76 @@
     command: apt-get install -y build-essential
   - name: Instalar pip
     apt: name=python3-pip state=present
-  - name: Instalar paquetes necesarios
+  - name: Instalar setuotools
     apt: name=python3-setuptools state=present
+  - name: Instalar python3-dev
     apt: name=python3-dev state=present
+  - name: Instalar libgdbm-dev
     apt: name=libgdbm-dev state=present
+  - name: Instalar libncurses5-dev
     apt: name=libncurses5-dev state=present
+  - name: instalar postgresql
     apt: name=postgresql state=present
+  - name: Instalar postgresql-contrib
     apt: name=postgresql-contrib state=present
+  - name: Instalar libpq-dev
     apt: name=libpq-dev state=present
   - name: Instalar supervisor
     apt: name=supervisor state=present
-  - name: Instalar paquete resultados
-    command: sudo python3 setup.py install
-  - name: Instalar paquete clasificacion
-    command: sudo python3 setup_clasificacion.py install
+
+  - name: Crear directorio
+    command: mkdir -m 777 proyectocc
+
+  - name: copy setup resultados
+    copy:
+      src: setup.py
+      dest: proyectocc/setup.py
+
+  - name: copy nginx configuracion
+    copy:
+      src: nginx.conf
+      dest: proyectocc/nginx.conf
+
+  - name: copy directorio resultados
+    copy:
+      src: bot
+      dest: proyectocc/bot
+
+  - name: copy directorio clasificacion
+    copy:
+      src: clasificacion
+      dest: proyectocc/clasificacion
+
+  - name: Instalar proyectocc/paquete resultados
+    command: python3 setup.py install
+    become: yes
+    args:
+      chdir: proyectocc/
+
   - name: Instalar nginx
-  	command: sudo apt install nginx 
-  - name: Mover configuracion nginx
-  	command: sudo mv -f nginx.conf ../../etc/nginx/nginx.conf
+    apt: name=nginx state=present  
+    become: yes
+
+  - name: Instalar proyectocc/paquete resultados
+    command: mv -f proyectocc/nginx.conf /etc/nginx/nginx.conf
+    become: yes	
+
+  - name: mover configuracion nginx
+    command: mv -f proyectocc/nginx.conf /etc/nginx/nginx.conf
+    become: yes
+    args:
+      chdir: proyectocc/
+
+  - name: iniciar nginx
+    command: service nginx start
+    become: yes
+
+  - name: iniciar ms resultados
+    command: make ejecutar_result
+    args:
+      chdir: proyectocc/
+
+  - name: iniciar ms resultados
+    command: make ejecutar_clasificacion
+    args:
+      chdir: proyectocc/

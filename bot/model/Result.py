@@ -1,5 +1,5 @@
 from peewee import *
-from bot.model.BaseModel import BaseModel
+from model.BaseModel import BaseModel
 
 
 class Result(BaseModel):
