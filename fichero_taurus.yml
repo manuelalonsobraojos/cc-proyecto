@@ -7,15 +7,11 @@ execution:
 scenarios:
   app-test:
     requests:
-    - url: 'http://127.0.0.1:8000/result/getall'
+    - url: 'http://35.246.114.3/result/getall'
       method: GET
 
-    - url: 'http://127.0.0.1:8000/result/get/1'
+    - url: 'http://35.246.114.3//clasificacion/getall'
       method: GET
-
-    - url: 'http://127.0.0.1:8000/result/local/valencia'
-      method: GET
-
 
 
 
