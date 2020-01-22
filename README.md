@@ -287,7 +287,11 @@ http {
 }
 ```
 
+En la siguiente imagen podemos ver como la máquina virtual está creada en la ventana de administración de Google Cloud:
+![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/Captura_GC.PNG)
 
+En la siguiente imagen se puede ver como desde el navegador es posible realizar una petición a la máquina virtual desplegada:
+![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/Captura_4_1.PNG)
 
 
 
