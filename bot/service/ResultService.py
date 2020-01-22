@@ -1,4 +1,4 @@
-from model.Result import Result
+from bot.model.Result import Result
 import requests
 from bs4 import BeautifulSoup
 

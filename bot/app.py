@@ -4,9 +4,9 @@ from flask import Response
 from flask import jsonify, make_response
 from flask import Flask
 from playhouse.shortcuts import model_to_dict
-from model.BaseModel import db
-from model.Result import Result
-from service.ResultService import ResultService as rService
+from bot.model.BaseModel import db
+from bot.model.Result import Result
+from bot.service.ResultService import ResultService as rService
 import os
 from flask_caching import Cache
 
