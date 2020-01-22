@@ -3,7 +3,9 @@ Repositorio para el proyecto de la asignatura Cloud Computing
 
 [![Build Status](https://travis-ci.org/manuelalonsobraojos/cc-proyecto.svg?branch=master)](https://travis-ci.org/manuelalonsobraojos/cc-proyecto) [![CircleCI](https://circleci.com/gh/manuelalonsobraojos/cc-proyecto.svg?style=svg)](https://circleci.com/gh/manuelalonsobraojos/cc-proyecto) 
 
-En el siguiente enlace podemos consultar la documentación correspondiente a la primera entrega:
+En el siguiente enlace podemos consultar la documentación correspondiente a la primera entrega en la que se especifica la arquitectura:
+
+![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/arquitectura.png)
 
 [primera entrega](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/docs/Readme1.md)
 
