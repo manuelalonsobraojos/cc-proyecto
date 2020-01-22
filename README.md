@@ -211,7 +211,7 @@ Al ejecutar esto automáticamente se desplegará la máquina virtulal y se reali
 ```
 Como se puede observar se crean las variables de entorno necesarias, se instalan las dependencias para el correcto funcionamiento de la arquitectura, se sobreescribe la configuración nginx la cual ahora se verá y se pone en funcionamiento.
 
-ara poder acceder mediante http al servidor Nginf se ejecutará la siguiente orden para la creación de reglas de Firewall en GCP, estas reglas han sido vistas en la documentación oficial de google cloud [Google_Cloud](https://cloud.google.com/vpc/docs/using-firewalls?hl=es-419).
+Para poder acceder mediante http al servidor Nginf se ejecutará la siguiente orden para la creación de reglas de Firewall en GCP, estas reglas han sido vistas en la documentación oficial de google cloud [Google_Cloud](https://cloud.google.com/vpc/docs/using-firewalls?hl=es-419).
 ```
 gcloud compute firewall-rules create vm1-allow-ingress-tcp-port80-from-subnet1 \
     --network my-network \
