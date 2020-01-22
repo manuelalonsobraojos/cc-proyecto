@@ -296,6 +296,12 @@ En la siguiente imagen se puede ver como desde el navegador es posible realizar 
 ![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/Captura_4_1.PNG)
 
 
+### Medición de prestaciones
+
+Se ha realiazo una medición de prestaciones para la cual se ha utilizado la herramienta **Taurus**.
+Tras la medición de prestaciones se ha comprobado que la máquina remota desplegada en **Google Cloud** no es capaz de soportar un número elevado de peticiones por segundo, obteniendo un número mucho menor que el obtenido en las mediciones realizadas en nuestra máquina local.
+
+![img](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/img/prestaciones_GC.PNG)
 
 
 
