@@ -52,7 +52,7 @@ Contenedor: https://hub.docker.com/r/manuelalonsobraojos/cc-proyecto
 
 La arquitectura de este microservicio está compuesta por tres capas:
 * **Capa de servicio**: es la capa que se encarga de dar acceso al microservicio y se encarga de intermediar la comuniacación entre *la capa de presentación* (corresponde con la interfaz que interactua con el usuario) y la **capa de negocio**. [app.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/app.py)
-* **Capa de lógica de negocio**: es la capa que contiene una serie subrutinas que regulan la acciones de los usuarios e interactuan con las entidades de negocio. [resultservice.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/service/ResultService.py)
+* **Capa de lógica de negocio**: es la capa que contiene una serie de subrutinas que regulan la acciones de los usuarios e interactuan con las entidades de negocio. [resultservice.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/service/ResultService.py)
 * **Capa de base de datos**: contiene las entidades que interactuan con la base de daos. [result.py](https://github.com/manuelalonsobraojos/cc-proyecto/blob/master/bot/model/Result.py)
  
 ### Despliegue en Heroku
