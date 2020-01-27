@@ -49,6 +49,11 @@
       src: setup.py
       dest: proyectocc/setup.py
 
+  - name: copy Makefile
+    copy:
+      src: Makefile
+      dest: proyectocc/Makefile
+
   - name: copy nginx configuracion
     copy:
       src: nginx.conf
